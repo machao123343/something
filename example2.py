@@ -44,3 +44,8 @@ tf.squeeze(tf.zeros[1, 2, 1, 1, 3], axis=0).shape  # squeeze删除维度为1的�
 # TensorShape([4, 32, 32, 3])
 b = tf.broadcast_to(tf.random.normal([4, 1, 1, 1], [4, 32, 32, 3])).shape
 
+# element-wise  matrix-wise dim-wise
+# tf.exp() tf.math.log() pow(b, 3) == b ** 3
+# a@b == tf.matmul(a, b)
+#tf.nn.relu(a) 输入非线性激活函数relu
+
