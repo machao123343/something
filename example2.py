@@ -47,5 +47,29 @@ b = tf.broadcast_to(tf.random.normal([4, 1, 1, 1], [4, 32, 32, 3])).shape
 # element-wise  matrix-wise dim-wise
 # tf.exp() tf.math.log() pow(b, 3) == b ** 3
 # a@b == tf.matmul(a, b)
-#tf.nn.relu(a) 输入非线性激活函数relu
+# tf.nn.relu(a) 输入非线性激活函数relu
 
+
+# concat 将数据合并
+a = tf.ones([4, 35, 8])
+b = tf.ones([4, 35, 8])
+c = tf.contact([a, b], axis=0)  # TensorShape([8, 35, 8])
+d = tf.Stack([a, b], axis=0).shape  # TensorShape([2, 4, 35, 8])
+aa, bb = tf.unstack(c, axis=0)  # 解除合并 查询用法
+res = tf.split(c, axis=3, num_or_size_splits=[2, 2, 4]  # 把第三个轴按 2 2 4分开
+
+tf.norm(a, ord=1, axis=1)  # 在1维度求向量的1范数
+# reduce_min/max/mean  argmax/argmin  tf.equal返回True False
+
+#accuracy
+pred = tf.cast(tf.argmax(a, axis=1), dtype=tf.int32)
+correct = tf.reduce_sum(tf.equal(y, pred), dtype=tf.int32)
+correct = correct/N  # 输出的即为准确度
+
+#张量排序
+a = tf.random.shuffle(tf.range(5))   # 打乱序号输出
+tf.sort(a, direction='DESCENDING')   # 降序输出
+tf.argsort(a, direction='DESCENDING')  # 返回的是排序元素的位置
+res = tf.math.top_k(a, 2)  # 取头两个最大的数（概率）
+print(res.indices)
+print(res.values)
