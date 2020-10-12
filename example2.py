@@ -89,3 +89,5 @@ mask = a>0
 tf.boolean_mask(a, mask)
 indices = tf.where(mask)
 tf.gather_nd(a, indices)
+
+# keras.datasets   boston housing mnist/fashion mnist  cifar10/100  imdb
