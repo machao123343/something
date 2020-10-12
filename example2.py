@@ -73,3 +73,12 @@ tf.argsort(a, direction='DESCENDING')  # 返回的是排序元素的位置
 res = tf.math.top_k(a, 2)  # 取头两个最大的数（概率）
 print(res.indices)
 print(res.values)
+
+# pad() 函数， tile(a, [1, 2]) axis=0 复制一次  axis=1 复制两次
+# broadcast_to(aa, [2, 3, 3])
+
+# clip_by_value()即为通常意义上的限幅
+# maximum(a, 2) minimum(a, 8)  这两个其实就是两个判断函数
+# clip_by_norm(a, 15)  限制传入向量的范数，即可以限制向量的模的大小
+# Gradient clipping: Gradient Exploding or vanishing
+# new_grads, total_norm = tf.clip_by_global_norm(grads, 25)  对梯度的模整体都进行缩放，即防止梯度爆炸或者梯度消失
