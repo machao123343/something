@@ -82,3 +82,10 @@ print(res.values)
 # clip_by_norm(a, 15)  限制传入向量的范数，即可以限制向量的模的大小
 # Gradient clipping: Gradient Exploding or vanishing
 # new_grads, total_norm = tf.clip_by_global_norm(grads, 25)  对梯度的模整体都进行缩放，即防止梯度爆炸或者梯度消失
+
+# where的用法
+a = tf.random.normal([3, 3])
+mask = a>0
+tf.boolean_mask(a, mask)
+indices = tf.where(mask)
+tf.gather_nd(a, indices)
