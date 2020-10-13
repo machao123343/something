@@ -57,3 +57,24 @@ def mnist_dataset():
     return ds, ds_val
 
 
+# Fully connected layer
+# x = tf.random.normal([4, 28 * 28])
+# net = tf.keras.layers.Dense(512)  # dense即为全连接
+# out = net(x)
+# print(out.shape)
+# print(net.kernel.shape, net.bias.shape)
+
+net = tf.keras.layers.Dense(10)
+# print(net.bias)
+print(net.get_weights())
+net.build(input_shape=[None, 4])
+print(net.kernel.shape, net.bais.shape)
+net.build(input_shape=[None, 20])
+print(net.kernel.shape, net.bais.shape)
+net.build(input_shape=[2, 4])
+print(net.kernel.shape, net.bais.shape)
+
+
+
+
+
